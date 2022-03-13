@@ -8,9 +8,9 @@ dotnet run
 
 
 ## Environment variables
-| Name                           | Required (yes/no) | Default value                                                            |Description |     |
-| ------------------------------ | ----------------- | -------------------------------------------------------------------------| -----------|
-|DbConnection                    | no                | server=127.0.0.1;port=3306;uid=root;pwd=password;database=mydb(local dev)| API Graphql  |
+| Name                           | Required (yes/no) | Default value                                                            | Description |
+| ------------------------------ | ----------------- | -------------------------------------------------------------------------| ----------- |
+| DbConnection                   | no                | server=127.0.0.1;port=3306;uid=root;pwd=password;database=mydb(local dev)| API Graphql |
 
 ## ⚙️ Deployment
 Build docker Image - docker build -t weatherapi .
