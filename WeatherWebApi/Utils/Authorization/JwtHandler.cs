@@ -18,7 +18,7 @@ namespace WeatherWebApi.Utils.Authorization
         public string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_config.GetSection("secretKey").Value);
+            var key = Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("SecretKey") ?? _config.GetSection("SecretKey").Value);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Email, user.Email.ToString()), new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) }),

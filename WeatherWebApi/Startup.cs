@@ -18,7 +18,6 @@ using WeatherWebApi.Utils.Authorization;
 using System;
 using Microsoft.Extensions.Logging;
 using WeatherWebApi.Middleware;
-using Microsoft.AspNetCore.Http;
 
 namespace WeatherWebApi
 {
@@ -52,7 +51,7 @@ namespace WeatherWebApi
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes((Configuration.GetSection("secretKey").Value))),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes((Environment.GetEnvironmentVariable("SecretKey") ?? Configuration.GetSection("SecretKey").Value))),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };

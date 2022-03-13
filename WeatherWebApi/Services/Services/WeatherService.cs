@@ -29,7 +29,7 @@ namespace WeatherWebApi.Services.Services
 
             using (var httpClient = new HttpClient())
             {
-                var response = await httpClient.GetAsync($"http://api.openweathermap.org/data/2.5/weather?q={cityName}&appid={_config.GetSection("WeatherApiKey").Value}");
+                var response = await httpClient.GetAsync($"http://api.openweathermap.org/data/2.5/weather?q={cityName}&appid={Environment.GetEnvironmentVariable("WeatherApiKey") ?? _config.GetSection("WeatherApiKey").Value}");
                 var data = JsonSerializer.Deserialize<ExpandoObject>(await response.Content.ReadAsStringAsync());
                 if (response.IsSuccessStatusCode)
                 {
