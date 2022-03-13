@@ -8,10 +8,16 @@ dotnet run
 
 
 ## Environment variables
-| Name                           | Required (yes/no) | Default value                                                            | Description |
-| ------------------------------ | ----------------- | -------------------------------------------------------------------------| ----------- |
-| DbConnection                   | no                | server=127.0.0.1;port=3306;uid=root;pwd=password;database=mydb(local dev)| API Graphql |
+| Name                           | Required (yes/no) | Default value                                                            | Description        |
+| ------------------------------ | ----------------- | -------------------------------------------------------------------------| ------------------ |
+| DbConnection                   | no                | server=127.0.0.1;port=3306;uid=root;pwd=password;database=mydb(local dev)| DbConnectionString |
 
 ## ⚙️ Deployment
-Build docker Image - docker build -t weatherapi .
-Run dokcker Image(with env variables) - docker run -p 5005:8080 --env DbConnection="server=host.docker.internal;port=3306;uid=root;pwd=password;database=testdb" --name weatherwebapi weatherwebapi
+Build Docker Image
+```lang-bash
+docker build -t weatherapi .
+```
+Run Docker Image (with env variables)
+```lang-bash
+docker run -p 5005:5005 --env DbConnection="server=host.docker.internal;port=3306;uid=root;pwd=password;database=testdb" --name weatherwebapi weatherwebapi
+```
