@@ -15,7 +15,7 @@ dotnet run
 ## ⚙️ Deployment
 Build 
 ```lang-bash
-docker Image - docker build -t weatherapi .
+docker build -t weatherapi .
 ```
 Run 
 ```lang-bash
