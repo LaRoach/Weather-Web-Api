@@ -19,5 +19,5 @@ docker build -t weatherapi .
 ```
 Run 
 ```lang-bash
-docker Image(with env variables) - docker run -p 5005:8080 --env DbConnection="server=host.docker.internal;port=3306;uid=root;pwd=password;database=testdb" --name weatherwebapi weatherwebapi
+docker Image(with env variables) - docker run -p 5005:5005 --env DbConnection="server=host.docker.internal;port=3306;uid=root;pwd=password;database=testdb" --name weatherwebapi weatherwebapi
 ```
